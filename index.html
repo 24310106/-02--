@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>用户注册</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form id="registerForm" action="#" method="post">
+            <div class="row">
+                <label for="username">用户名：</label>
+                <input type="text" name="username" id="username" required placeholder="请输入用户名">
+            </div>
+
+            <div class="row">
+                <label for="password">密码：</label>
+                <input type="password" name="password" id="password" placeholder="6‑16位字符">
+            </div>
+
+            <div class="row">
+                <label for="confirmPassword">确认密码：</label>
+                <input type="password" name="confirmPassword" id="confirmPassword">
+            </div>
+
+            <div class="row">
+                <label>性别：</label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="male">男</label>
+                <label><input type="radio" name="gender" value="female">女</label>
+            </div>
+
+            <div class="row">
+                <label for="birthday">出生日期：</label>
+                <input type="date" name="birthday" id="birthday">
+            </div>
+
+            <div class="row">
+                <label for="email">邮箱：</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div class="row">
+                <label for="phone">手机号：</label>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]{11}" placeholder="11位手机号码">
+            </div>
+
+            <div class="row">
+                <label>兴趣爱好：</label>
+                <label><input type="checkbox" name="hobby" value="reading">阅读</label>
+                <label><input type="checkbox" name="hobby" value="game">游戏</label>
+                <label><input type="checkbox" name="hobby" value="sport">运动</label>
+            </div>
+
+            <div class="row">
+                <label for="avatar">头像上传：</label>
+                <input type="file" name="avatar" id="avatar" accept="image/*" multiple>
+            </div>
+
+            <div class="row">
+                <label for="city">所在城市：</label>
+                <select name="city" id="city">
+                    <option value="changsha">长沙</option>
+                    <option value="changde" selected>常德</option>
+                    <option value="zhangjiajie">张家界</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <label>个人简介：</label><br>
+                <textarea name="bio" rows="4" cols="45"></textarea>
+            </div>
+
+            <div class="row">
+                <button type="submit">注册</button>
+                <button type="reset">重置</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h3>注册须知</h3>
+        <!-- 保留colspan合并单元格要求，布局清爽，不突兀 -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>说明内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">提示：请如实填写个人信息</td>
+                </tr>
+                <tr>
+                    <td>账号要求</td>
+                    <td>用户名禁止特殊符号，长度2‑12位</td>
+                </tr>
+                <tr>
+                    <td>隐私说明</td>
+                    <td>提交信息仅用于本站业务，不会对外泄露</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3>注册注意事项</h3>
+        <ul>
+            <li>带必填标记项目必须填写</li>
+            <li>密码注意妥善保管</li>
+            <li>手机号请如实填写</li>
+        </ul>
+
+        <hr>
+
+        <h3>注册步骤</h3>
+        <ol>
+            <li>完整填写表单</li>
+            <li>阅读注册须知</li>
+            <li>点击注册提交</li>
+        </ol>
+
+        <hr>
+
+        <h3>常见问题</h3>
+        <dl>
+            <dt>忘记密码？</dt>
+            <dd>通过邮箱找回密码</dd>
+            <dt>注册失败？</dt>
+            <dd>检查表单格式是否正确</dd>
+        </dl>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>© 2026 版权所有</p >
+    </footer>
+
+    <script>
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const fd = new FormData(form);
+            console.log("====表单提交数据====");
+            for(let [k,v] of fd){
+                console.log(k,":",v);
+            }
+        })
+    </script>
+</body>
+</html>
